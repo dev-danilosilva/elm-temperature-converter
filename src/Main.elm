@@ -112,8 +112,8 @@ view model =
 
 selectTemperatureUnit : (String -> msg) -> Html msg
 selectTemperatureUnit message =
-    div [class "select"]
-        [ select [ onInput message, class "has-text-centered is-large"]
+    div [class "select is-large"]
+        [ select [ onInput message, class "is-large"]
             [ option [ value "C"] [text "Celsius"]
             , option [ value "F"] [text "Fahrenheit"]
             , option [ value "K"] [text "Kelvin"]

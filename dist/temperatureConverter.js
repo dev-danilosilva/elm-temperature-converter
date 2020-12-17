@@ -5374,7 +5374,7 @@ var $author$project$Main$selectTemperatureUnit = function (message) {
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
-				$elm$html$Html$Attributes$class('select')
+				$elm$html$Html$Attributes$class('select is-large')
 			]),
 		_List_fromArray(
 			[
@@ -5383,7 +5383,7 @@ var $author$project$Main$selectTemperatureUnit = function (message) {
 				_List_fromArray(
 					[
 						$elm$html$Html$Events$onInput(message),
-						$elm$html$Html$Attributes$class('has-text-centered is-large')
+						$elm$html$Html$Attributes$class('is-large')
 					]),
 				_List_fromArray(
 					[
