@@ -1,8 +1,8 @@
 module Main exposing (..)
 
-import Html exposing (Attribute, Html, div, input, option, select, text)
+import Html exposing (Attribute, Html, article, div, figure, img, input, option, p, section, select, text)
 import Html.Events exposing (onInput)
-import Html.Attributes exposing (class, placeholder, value)
+import Html.Attributes exposing (class, placeholder, src, type_, value)
 import Temperature exposing (TempUnit(..), Temperature, unitFromString, convertFrom)
 import Browser
 
@@ -53,19 +53,68 @@ update msg model = case msg of
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ input [placeholder "Scalar", onInput ChangeFromScalar] []
-        , selectTemperatureUnit ChangeFromUnit ""
-        , selectTemperatureUnit ChangeToUnit ""
+    div [class "container"]
+        [ div [ class "tile is-ancestor" ]
+            [ div [ class "tile is-vertical is-8" ]
+                [ div [ class "tile" ]
+                    [ div [ class "tile is-parent is-vertical" ]
+                        [ article [ class "tile is-child notification is-primary" ]
+                            [ p [ class "title" ]
+                                [ text "FROM" ]
+                            , div [class "field is-grouped"]
+                                [ div [class "columns"]
+                                    [ div [ class "column is-half"]
+                                        [ div [ class "control" ]
+                                            [ input [class "input is-large", type_ "text", onInput ChangeFromScalar] [] ]
+                                        ]
+                                    , div [ class "column is-half" ]
+                                        [ div [ class "control" ]
+                                            [ selectTemperatureUnit ChangeFromUnit ]]
+                                    ]
+                                ]
+                            ]
+                        , article [ class "tile is-child notification is-warning" ]
+                            [ p [ class "title" ]
+                                [ text "TO" ]
+                            , div [class "columns"]
+                                [ div [ class "column is-4 is-offset-4"]
+                                    [ selectTemperatureUnit ChangeToUnit
+                                    ]
+                                ]
+                            ]
+                        ]
+                    , div [ class "tile is-parent" ]
+                        [ article [ class "tile is-child notification is-info" ]
+                            [ p [ class "title" ]
+                                [ model.from.scalar |> String.fromFloat |> text ]
+                            , p [ class "subtitle" ]
+                                [ text "With an image" ]
+                            ]
+                        ]
+                    ]
+                ]
+            , div [ class "tile is-parent" ]
+                [ article [ class "tile is-child notification is-success" ]
+                    [ div [ class "content" ]
+                        [ p [ class "title" ]
+                            [ model.to.scalar |> String.fromFloat |> text ]
+                        , p [ class "subtitle" ]
+                            [ text "With even more content" ]
+                        , div [ class "content" ]
+                            [ text "" ]
+                        ]
+                    ]
+                ]
+            ]
         ]
 
-selectTemperatureUnit : (String -> msg) -> String -> Html msg
-selectTemperatureUnit message classes =
-    select [ onInput message ]
-            [ option [] []
-            , option [ class classes, value "C"] [text "Celsius"]
-            , option [ class classes, value "F"] [text "Fahrenheit"]
-            , option [ class classes, value "K"] [text "Kelvin"]
+
+selectTemperatureUnit : (String -> msg) -> Html msg
+selectTemperatureUnit message =
+    select [ onInput message, class "select is-large" ]
+            [ option [ value "C"] [text "Celsius"]
+            , option [ value "F"] [text "Fahrenheit"]
+            , option [ value "K"] [text "Kelvin"]
             ]
 
 initialScalar = 0

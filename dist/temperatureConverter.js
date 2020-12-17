@@ -5312,7 +5312,18 @@ var $author$project$Main$ChangeFromUnit = function (a) {
 var $author$project$Main$ChangeToUnit = function (a) {
 	return {$: 'ChangeToUnit', a: a};
 };
+var $elm$html$Html$article = _VirtualDom_node('article');
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
+	});
+var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$core$String$fromFloat = _String_fromNumber;
 var $elm$html$Html$input = _VirtualDom_node('input');
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
@@ -5348,83 +5359,318 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
-var $elm$json$Json$Encode$string = _Json_wrap;
-var $elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$string(string));
-	});
-var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
-var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$html$Html$option = _VirtualDom_node('option');
 var $elm$html$Html$select = _VirtualDom_node('select');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
-var $author$project$Main$selectTemperatureUnit = F2(
-	function (message, classes) {
-		return A2(
-			$elm$html$Html$select,
-			_List_fromArray(
-				[
-					$elm$html$Html$Events$onInput(message)
-				]),
-			_List_fromArray(
-				[
-					A2($elm$html$Html$option, _List_Nil, _List_Nil),
-					A2(
-					$elm$html$Html$option,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$class(classes),
-							$elm$html$Html$Attributes$value('C')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Celsius')
-						])),
-					A2(
-					$elm$html$Html$option,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$class(classes),
-							$elm$html$Html$Attributes$value('F')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Fahrenheit')
-						])),
-					A2(
-					$elm$html$Html$option,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$class(classes),
-							$elm$html$Html$Attributes$value('K')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Kelvin')
-						]))
-				]));
-	});
-var $author$project$Main$view = function (model) {
+var $author$project$Main$selectTemperatureUnit = function (message) {
 	return A2(
-		$elm$html$Html$div,
-		_List_Nil,
+		$elm$html$Html$select,
+		_List_fromArray(
+			[
+				$elm$html$Html$Events$onInput(message),
+				$elm$html$Html$Attributes$class('select is-large')
+			]),
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$input,
+				$elm$html$Html$option,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$placeholder('Scalar'),
-						$elm$html$Html$Events$onInput($author$project$Main$ChangeFromScalar)
+						$elm$html$Html$Attributes$value('C')
 					]),
-				_List_Nil),
-				A2($author$project$Main$selectTemperatureUnit, $author$project$Main$ChangeFromUnit, ''),
-				A2($author$project$Main$selectTemperatureUnit, $author$project$Main$ChangeToUnit, '')
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Celsius')
+					])),
+				A2(
+				$elm$html$Html$option,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$value('F')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Fahrenheit')
+					])),
+				A2(
+				$elm$html$Html$option,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$value('K')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Kelvin')
+					]))
+			]));
+};
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
+var $author$project$Main$view = function (model) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('container')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('tile is-ancestor')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('tile is-vertical is-8')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$div,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('tile')
+									]),
+								_List_fromArray(
+									[
+										A2(
+										$elm$html$Html$div,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('tile is-parent is-vertical')
+											]),
+										_List_fromArray(
+											[
+												A2(
+												$elm$html$Html$article,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('tile is-child notification is-primary')
+													]),
+												_List_fromArray(
+													[
+														A2(
+														$elm$html$Html$p,
+														_List_fromArray(
+															[
+																$elm$html$Html$Attributes$class('title')
+															]),
+														_List_fromArray(
+															[
+																$elm$html$Html$text('FROM')
+															])),
+														A2(
+														$elm$html$Html$div,
+														_List_fromArray(
+															[
+																$elm$html$Html$Attributes$class('field is-grouped')
+															]),
+														_List_fromArray(
+															[
+																A2(
+																$elm$html$Html$div,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$class('columns')
+																	]),
+																_List_fromArray(
+																	[
+																		A2(
+																		$elm$html$Html$div,
+																		_List_fromArray(
+																			[
+																				$elm$html$Html$Attributes$class('column is-half')
+																			]),
+																		_List_fromArray(
+																			[
+																				A2(
+																				$elm$html$Html$div,
+																				_List_fromArray(
+																					[
+																						$elm$html$Html$Attributes$class('control')
+																					]),
+																				_List_fromArray(
+																					[
+																						A2(
+																						$elm$html$Html$input,
+																						_List_fromArray(
+																							[
+																								$elm$html$Html$Attributes$class('input is-large'),
+																								$elm$html$Html$Attributes$type_('text'),
+																								$elm$html$Html$Events$onInput($author$project$Main$ChangeFromScalar)
+																							]),
+																						_List_Nil)
+																					]))
+																			])),
+																		A2(
+																		$elm$html$Html$div,
+																		_List_fromArray(
+																			[
+																				$elm$html$Html$Attributes$class('column is-half')
+																			]),
+																		_List_fromArray(
+																			[
+																				A2(
+																				$elm$html$Html$div,
+																				_List_fromArray(
+																					[
+																						$elm$html$Html$Attributes$class('control')
+																					]),
+																				_List_fromArray(
+																					[
+																						$author$project$Main$selectTemperatureUnit($author$project$Main$ChangeFromUnit)
+																					]))
+																			]))
+																	]))
+															]))
+													])),
+												A2(
+												$elm$html$Html$article,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('tile is-child notification is-warning')
+													]),
+												_List_fromArray(
+													[
+														A2(
+														$elm$html$Html$p,
+														_List_fromArray(
+															[
+																$elm$html$Html$Attributes$class('title')
+															]),
+														_List_fromArray(
+															[
+																$elm$html$Html$text('TO')
+															])),
+														A2(
+														$elm$html$Html$div,
+														_List_fromArray(
+															[
+																$elm$html$Html$Attributes$class('columns')
+															]),
+														_List_fromArray(
+															[
+																A2(
+																$elm$html$Html$div,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$class('column is-4 is-offset-4')
+																	]),
+																_List_fromArray(
+																	[
+																		$author$project$Main$selectTemperatureUnit($author$project$Main$ChangeToUnit)
+																	]))
+															]))
+													]))
+											])),
+										A2(
+										$elm$html$Html$div,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('tile is-parent')
+											]),
+										_List_fromArray(
+											[
+												A2(
+												$elm$html$Html$article,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('tile is-child notification is-info')
+													]),
+												_List_fromArray(
+													[
+														A2(
+														$elm$html$Html$p,
+														_List_fromArray(
+															[
+																$elm$html$Html$Attributes$class('title')
+															]),
+														_List_fromArray(
+															[
+																$elm$html$Html$text(
+																$elm$core$String$fromFloat(model.from.scalar))
+															])),
+														A2(
+														$elm$html$Html$p,
+														_List_fromArray(
+															[
+																$elm$html$Html$Attributes$class('subtitle')
+															]),
+														_List_fromArray(
+															[
+																$elm$html$Html$text('With an image')
+															]))
+													]))
+											]))
+									]))
+							])),
+						A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('tile is-parent')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$article,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('tile is-child notification is-success')
+									]),
+								_List_fromArray(
+									[
+										A2(
+										$elm$html$Html$div,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('content')
+											]),
+										_List_fromArray(
+											[
+												A2(
+												$elm$html$Html$p,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('title')
+													]),
+												_List_fromArray(
+													[
+														$elm$html$Html$text(
+														$elm$core$String$fromFloat(model.to.scalar))
+													])),
+												A2(
+												$elm$html$Html$p,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('subtitle')
+													]),
+												_List_fromArray(
+													[
+														$elm$html$Html$text('With even more content')
+													])),
+												A2(
+												$elm$html$Html$div,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('content')
+													]),
+												_List_fromArray(
+													[
+														$elm$html$Html$text('')
+													]))
+											]))
+									]))
+							]))
+					]))
 			]));
 };
 var $author$project$Main$main = $elm$browser$Browser$sandbox(
