@@ -5435,7 +5435,7 @@ var $author$project$Main$view = function (model) {
 				$elm$html$Html$div,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$class('tile is-ancestor')
+						$elm$html$Html$Attributes$class('tile is-ancestor mt-5')
 					]),
 				_List_fromArray(
 					[
@@ -5599,7 +5599,7 @@ var $author$project$Main$view = function (model) {
 												$elm$html$Html$article,
 												_List_fromArray(
 													[
-														$elm$html$Html$Attributes$class('tile is-child notification is-info')
+														$elm$html$Html$Attributes$class('tile is-flex-direction-column is-flex is-justify-content-center is-align-content-center is-child notification is-info has-text-centered')
 													]),
 												_List_fromArray(
 													[
@@ -5641,50 +5641,31 @@ var $author$project$Main$view = function (model) {
 								$elm$html$Html$article,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('tile is-child notification is-success')
+										$elm$html$Html$Attributes$class('tile is-flex-direction-column is-flex is-justify-content-center is-align-content-center has-text-centered is-child notification is-success')
 									]),
 								_List_fromArray(
 									[
 										A2(
-										$elm$html$Html$div,
+										$elm$html$Html$p,
 										_List_fromArray(
 											[
-												$elm$html$Html$Attributes$class('content')
+												$elm$html$Html$Attributes$class('title')
 											]),
 										_List_fromArray(
 											[
-												A2(
-												$elm$html$Html$p,
-												_List_fromArray(
-													[
-														$elm$html$Html$Attributes$class('title')
-													]),
-												_List_fromArray(
-													[
-														$elm$html$Html$text(
-														$elm$core$String$fromFloat(model.to.scalar))
-													])),
-												A2(
-												$elm$html$Html$p,
-												_List_fromArray(
-													[
-														$elm$html$Html$Attributes$class('subtitle')
-													]),
-												_List_fromArray(
-													[
-														$elm$html$Html$text(
-														$author$project$Temperature$unitToStringLong(model.to.unit))
-													])),
-												A2(
-												$elm$html$Html$div,
-												_List_fromArray(
-													[
-														$elm$html$Html$Attributes$class('content')
-													]),
-												_List_fromArray(
-													[
-														$elm$html$Html$text('')
-													]))
+												$elm$html$Html$text(
+												$elm$core$String$fromFloat(model.to.scalar))
+											])),
+										A2(
+										$elm$html$Html$p,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('subtitle')
+											]),
+										_List_fromArray(
+											[
+												$elm$html$Html$text(
+												$author$project$Temperature$unitToStringLong(model.to.unit))
 											]))
 									]))
 							]))
