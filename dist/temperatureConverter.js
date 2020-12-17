@@ -5279,7 +5279,11 @@ var $author$project$Main$update = F2(
 						_Utils_update(
 							model,
 							{
-								from: A2($author$project$Temperature$Temperature, unit, model.from.scalar)
+								from: A2($author$project$Temperature$Temperature, unit, model.from.scalar),
+								to: A2(
+									$author$project$Temperature$Temperature,
+									model.to.unit,
+									A3($author$project$Temperature$convertFrom, unit, model.to.unit, model.from.scalar))
 							}));
 				}
 			default:
@@ -5504,6 +5508,8 @@ var $author$project$Main$view = function (model) {
 																						_List_fromArray(
 																							[
 																								$elm$html$Html$Attributes$class('input is-large'),
+																								$elm$html$Html$Attributes$value(
+																								$elm$core$String$fromFloat(model.from.scalar)),
 																								$elm$html$Html$Attributes$type_('text'),
 																								$elm$html$Html$Events$onInput($author$project$Main$ChangeFromScalar)
 																							]),
@@ -5562,7 +5568,7 @@ var $author$project$Main$view = function (model) {
 																$elm$html$Html$div,
 																_List_fromArray(
 																	[
-																		$elm$html$Html$Attributes$class('column is-4 is-offset-4')
+																		$elm$html$Html$Attributes$class('column is-8 is-offset-2')
 																	]),
 																_List_fromArray(
 																	[

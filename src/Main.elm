@@ -38,7 +38,12 @@ update msg model = case msg of
 
         Nothing -> model
 
-        Just unit -> Debug.log "Model: " { model | from = Temperature unit model.from.scalar }
+        Just unit -> Debug.log "Model: " { model
+                                            | from = Temperature unit model.from.scalar
+                                            , to   = model.from.scalar
+                                                     |> convertFrom unit model.to.unit
+                                                     |> Temperature model.to.unit
+                                         }
 
     ChangeToUnit u -> case unitFromString u of
 
@@ -65,7 +70,7 @@ view model =
                                 [ div [class "columns"]
                                     [ div [ class "column is-half"]
                                         [ div [ class "control" ]
-                                            [ input [class "input is-large", type_ "text", onInput ChangeFromScalar] [] ]
+                                            [ input [class "input is-large", model.from.scalar |> String.fromFloat |> value, type_ "text", onInput ChangeFromScalar] [] ]
                                         ]
                                     , div [ class "column is-half" ]
                                         [ div [ class "control" ]
@@ -77,7 +82,7 @@ view model =
                             [ p [ class "title" ]
                                 [ text "TO" ]
                             , div [class "columns"]
-                                [ div [ class "column is-4 is-offset-4"]
+                                [ div [ class "column is-8 is-offset-2"]
                                     [ selectTemperatureUnit ChangeToUnit
                                     ]
                                 ]
@@ -111,7 +116,7 @@ view model =
 
 selectTemperatureUnit : (String -> msg) -> Html msg
 selectTemperatureUnit message =
-    select [ onInput message, class "select is-large" ]
+    select [ onInput message, class "select is-large"]
             [ option [ value "C"] [text "Celsius"]
             , option [ value "F"] [text "Fahrenheit"]
             , option [ value "K"] [text "Kelvin"]
