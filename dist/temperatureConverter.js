@@ -5371,43 +5371,52 @@ var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Main$selectTemperatureUnit = function (message) {
 	return A2(
-		$elm$html$Html$select,
+		$elm$html$Html$div,
 		_List_fromArray(
 			[
-				$elm$html$Html$Events$onInput(message),
-				$elm$html$Html$Attributes$class('select is-large')
+				$elm$html$Html$Attributes$class('select')
 			]),
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$option,
+				$elm$html$Html$select,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$value('C')
+						$elm$html$Html$Events$onInput(message),
+						$elm$html$Html$Attributes$class('has-text-centered is-large')
 					]),
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Celsius')
-					])),
-				A2(
-				$elm$html$Html$option,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$value('F')
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Fahrenheit')
-					])),
-				A2(
-				$elm$html$Html$option,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$value('K')
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Kelvin')
+						A2(
+						$elm$html$Html$option,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$value('C')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Celsius')
+							])),
+						A2(
+						$elm$html$Html$option,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$value('F')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Fahrenheit')
+							])),
+						A2(
+						$elm$html$Html$option,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$value('K')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Kelvin')
+							]))
 					]))
 			]));
 };
