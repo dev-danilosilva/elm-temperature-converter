@@ -11,6 +11,8 @@ module Temperature exposing
     , getUnit
     , TempUnit(..)
     , unitFromString
+    , unitToStringLong
+    , unitToStringShort
     )
 
 
@@ -66,6 +68,28 @@ unitFromString u = case String.toUpper u of
     "Fahrenheit" -> Just F
     "Celsius" -> Just C
     _   -> Nothing
+
+
+
+unitToStringLong : TempUnit -> String
+unitToStringLong unit = case unit of
+    K -> "Kelvin"
+
+    F -> "Fahrenheit"
+
+    C -> "Celsius"
+
+
+
+unitToStringShort : TempUnit -> String
+unitToStringShort unit = case unit of
+    K -> "K"
+
+    F -> "F"
+
+    C -> "C"
+
+
 
 convertFrom : TempUnit -> TempUnit -> Float -> Float
 convertFrom u0 u1 t0 = case u0 of

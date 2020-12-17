@@ -4487,8 +4487,7 @@ var $author$project$Temperature$convertFrom = F3(
 				}
 		}
 	});
-var $author$project$Temperature$F = {$: 'F'};
-var $author$project$Main$initialToUnit = $author$project$Temperature$F;
+var $author$project$Main$initialToUnit = $author$project$Temperature$C;
 var $author$project$Main$initialToTemperature = A2(
 	$author$project$Temperature$Temperature,
 	$author$project$Main$initialToUnit,
@@ -5217,6 +5216,7 @@ var $elm$browser$Browser$sandbox = function (impl) {
 };
 var $elm$core$Debug$log = _Debug_log;
 var $elm$core$String$toFloat = _String_toFloat;
+var $author$project$Temperature$F = {$: 'F'};
 var $author$project$Temperature$K = {$: 'K'};
 var $elm$core$String$toUpper = _String_toUpper;
 var $author$project$Temperature$unitFromString = function (u) {
@@ -5412,6 +5412,16 @@ var $author$project$Main$selectTemperatureUnit = function (message) {
 			]));
 };
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
+var $author$project$Temperature$unitToStringLong = function (unit) {
+	switch (unit.$) {
+		case 'K':
+			return 'Kelvin';
+		case 'F':
+			return 'Fahrenheit';
+		default:
+			return 'Celsius';
+	}
+};
 var $author$project$Main$view = function (model) {
 	return A2(
 		$elm$html$Html$div,
@@ -5612,7 +5622,8 @@ var $author$project$Main$view = function (model) {
 															]),
 														_List_fromArray(
 															[
-																$elm$html$Html$text('With an image')
+																$elm$html$Html$text(
+																$author$project$Temperature$unitToStringLong(model.from.unit))
 															]))
 													]))
 											]))
@@ -5661,7 +5672,8 @@ var $author$project$Main$view = function (model) {
 													]),
 												_List_fromArray(
 													[
-														$elm$html$Html$text('With even more content')
+														$elm$html$Html$text(
+														$author$project$Temperature$unitToStringLong(model.to.unit))
 													])),
 												A2(
 												$elm$html$Html$div,

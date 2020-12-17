@@ -3,7 +3,7 @@ module Main exposing (..)
 import Html exposing (Attribute, Html, article, div, figure, img, input, option, p, section, select, text)
 import Html.Events exposing (onInput)
 import Html.Attributes exposing (class, placeholder, src, type_, value)
-import Temperature exposing (TempUnit(..), Temperature, unitFromString, convertFrom)
+import Temperature exposing (TempUnit(..), Temperature, unitFromString, convertFrom, unitToStringShort)
 import Browser
 
 type alias Model =
@@ -93,7 +93,7 @@ view model =
                             [ p [ class "title" ]
                                 [ model.from.scalar |> String.fromFloat |> text ]
                             , p [ class "subtitle" ]
-                                [ text "With an image" ]
+                                [ model.from.unit |> Temperature.unitToStringLong |> text ]
                             ]
                         ]
                     ]
@@ -104,7 +104,7 @@ view model =
                         [ p [ class "title" ]
                             [ model.to.scalar |> String.fromFloat |> text ]
                         , p [ class "subtitle" ]
-                            [ text "With even more content" ]
+                            [ model.to.unit |> Temperature.unitToStringLong |> text ]
                         , div [ class "content" ]
                             [ text "" ]
                         ]
@@ -126,7 +126,7 @@ initialScalar = 0
 
 initialFromUnit = C
 
-initialToUnit = F
+initialToUnit = C
 
 initialFromTemperature = Temperature initialFromUnit initialScalar
 
